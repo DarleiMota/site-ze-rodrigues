@@ -1,0 +1,431 @@
+/* Paleta de cores e tipografia */
+:root {
+    /* Cores */
+    --cor-fundo: #f5f5f5;
+    --cor-texto: #333;
+    --cor-header: #fff;
+    --cor-primaria: #3498db;
+    --cor-secundaria: #4a6491;
+    --cor-destaque: #ff8317;
+    --cor-card: #fff;
+    --cor-link: #555;
+    --cor-hover: #2980b9;
+    --cor-footer-texto: #ddd;
+    --cor-background-header-footer: linear-gradient(135deg, var(--cor-header), var(--cor-secundaria));
+
+    /* Tipografia */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-titulo: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-peso-normal: 400;
+    --fonte-peso-bold: 700;
+    --tamanho-titulo: 1.8rem;
+    --tamanho-subtitulo: 1.5rem;
+    --tamanho-texto: 1rem;
+    --tamanho-pequeno: 0.9rem;
+}
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-principal);
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    font-size: var(--tamanho-texto);
+    font-family: var(--fonte-principal);
+}
+
+/* Layout principal */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "aside section"
+        "footer footer";
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 10px;
+    padding: 10px;
+}
+
+/* Header */
+header {
+    grid-area: header;
+    background: linear-gradient(135deg, var(--cor-header), var(--cor-secundaria));
+    color: var(--cor-texto);
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 1px;
+}
+
+.logo h1 {
+    font-size: var(--tamanho-titulo);
+    font-weight: var(--fonte-peso-bold);
+    font-family: var(--fonte-titulo);
+}
+
+.logo .highlight {
+    color: var(--cor-destaque);
+    text-shadow: 2px 1px #be5f0c;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Aside */
+aside {
+    grid-area: aside;
+    background-color: var(--cor-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+aside h2 {
+    margin-bottom: 15px;
+    color: var(--cor-texto);
+    font-size: var(--tamanho-subtitulo);
+    font-weight: var(--fonte-peso-bold);
+    font-family: var(--fonte-titulo);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.category-menu {
+    list-style: none;
+}
+
+.category-menu li {
+    margin-bottom: 10px;
+}
+
+.category-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--cor-link);
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.category-link:hover,
+.category-link.active {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-card);
+}
+
+/* Section */
+section {
+    grid-area: section;
+    background-color: var(--cor-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.page-content h2 {
+    margin-bottom: 20px;
+    color: var(--cor-texto);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Produtos */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    background-color: var(--cor-card);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 15px;
+}
+
+.product-title {
+    font-size: var(--tamanho-texto);
+    font-weight: var(--fonte-peso-bold);
+}
+
+.product-description {
+    color: #666;
+    font-size: var(--tamanho-pequeno);
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-weight: bold;
+    color: var(--cor-destaque);
+    margin-bottom: 10px;
+}
+
+.buy-button {
+    display: block;
+    text-align: center;
+    background-color: var(--cor-primaria);
+    color: var(--cor-card);
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.buy-button:hover {
+    background-color: var(--cor-hover);
+}
+
+/* Página Sobre */
+.about-content {
+    max-width: 800px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+.about-image {
+    width: 800px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.feature {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+    color: var(--cor-texto);
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background: var(--cor-background-header-footer);
+    color: var(--cor-texto);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: var(--tamanho-subtitulo);
+    font-weight: var(--fonte-peso-bold);
+}
+
+.footer-section p,
+.footer-section a {
+    margin-bottom: 8px;
+    display: block;
+    color: var(--cor-texto);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--cor-card);
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-links a {
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--cor-texto);
+    font-size: 0.9rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 20px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--cor-link);
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal-body img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.modal-info h2 {
+    margin-bottom: 10px;
+    color: var(--cor-header);
+}
+
+.modal-info p {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cor-destaque);
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "header"
+            "aside"
+            "section"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
