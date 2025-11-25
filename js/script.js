@@ -2,12 +2,12 @@
 const products = [
     {
         id: 1,
-        title: "Ferramenta de Comunicação da Voz",
-        description: "Com o curso Ferramentas da Comunicação, aprenda a desenvolver sua narrativa, modular sua voz e controlar seu corpo e expressão.",
-        price: "06 x R$ 146,36",
+        title: "Placos que transformam",
+        description: "Uma mentoria em grupo para mulheres que querem destravar sua comunicação.",
+        price: "12 x R$ 89,77",
         category: "cursos",
         image: "./assets/locucaoVoz.png",
-        affiliateLink: "https://adm-emanuelacosta.hotmart.host/product-page-2c539bb1-0f98-403f-b094-c4cf4f5dc2d8?ref=K101297370Y&tio=instagram"
+        affiliateLink: "https://carlabacelar.hotmart.host/palcos-que-transformam-0d71228b-a64c-48c7-a452-4621cf695079?ref=A103094938N"
     },
     {
         id: 2,
